@@ -8,7 +8,6 @@ The Employee Management System is a microservices-based application developed wi
 - [System Architecture](#system-architecture)
 - [Getting Started](#getting-started)
 - [API Documentation](#api-documentation)
-- [Deployment](#deployment)
 ## Project Structure
 
 ```plaintext
@@ -84,7 +83,7 @@ To run the Employee Management System locally, follow these steps:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/employee-management-system.git
+git clone https://github.com/kal72/employee-management-system.git
 ```
 2. Navigate to the project root:
 ```bash
@@ -92,7 +91,7 @@ cd employee-management-system
 ```
 3. Start the system using Docker Compose:
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 4. Access the services at:
 
@@ -103,12 +102,4 @@ docker-compose up
     - Eureka Service Registry: http://localhost:8761
 
 ## API Documentation
-API documentation for each service can be found at the following endpoints:
-
-- Employee Service: http://localhost:8081/swagger-ui.html
-- Attendance Service: http://localhost:8082/swagger-ui.html
-- Performance Review Service: http://localhost:8083/swagger-ui.html
-- API Gateway: http://localhost:8080/swagger-ui.html
-
-## Deployment
-For deployment, consider using container orchestration tools like Kubernetes or Docker Swarm. Adjust environment variables and configurations accordingly for production deployment.
+API documentation for each service can be found at the directory `docs`:
