@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Attendance Service API
+  version: 2.0.0
+paths:
+  /api/attendance/history/{employeeId}:
+    get:
+      summary: Get Attendance History
+      parameters:
+        - name: employeeId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: startDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                - id: 1
+                  employeeId: 123
+                  checkIn: '2023-01-05T09:00:00'
+                  checkOut: '2023-01-05T17:00:00'
+                  status: CHECKED_OUT
+  /api/attendance/statistics/{employeeId}:
+    get:
+      summary: Get Attendance Statistics
+      parameters:
+        - name: employeeId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: startDate
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                totalAttendance: 200
+                totalLateArrivals: 10
+                totalAbsences: 20
+  /api/attendance/checkin/{employeeId}:
+    post:
+      summary: Check In
+      parameters:
+        - name: employeeId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+  /api/attendance/checkout/{employeeId}:
+    post:
+      summary: Check Out
+      parameters:
+        - name: employeeId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response

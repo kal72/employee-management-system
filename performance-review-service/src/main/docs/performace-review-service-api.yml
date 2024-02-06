@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  title: Performance Review Service API
+  version: 1.0.0
+paths:
+  /api/performance-reviews/employee/{employeeId}:
+    get:
+      summary: Get Performance Reviews by Employee ID
+      parameters:
+        - name: employeeId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                - id: 1
+                  employeeId: 123
+                  reviewDate: '2023-02-15'
+                  rating: 4
+                  feedback: 'Good performance'
+  /api/performance-reviews/add:
+    post:
+      summary: Add Performance Review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              employeeId: 123
+              reviewDate: '2023-02-15'
+              rating: 4
+              feedback: 'Good performance'
+      responses:
+        '201':
+

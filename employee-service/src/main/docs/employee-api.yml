@@ -1,0 +1,82 @@
+openapi: 3.0.1
+info:
+  title: Employee Service API
+  version: 1.0.0
+paths:
+  /employees:
+    get:
+      summary: Get all employees
+      responses:
+        '200':
+          description: Successful response
+    post:
+      summary: Add a new employee
+      responses:
+        '201':
+          description: Employee added successfully
+  /employees/{id}:
+    get:
+      summary: Get employee by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Employee ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: Employee not found
+    put:
+      summary: Update employee by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Employee ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Employee updated successfully
+        '404':
+          description: Employee not found
+    delete:
+      summary: Delete employee by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Employee ID
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Employee deleted successfully
+  /employees/average-salary:
+    get:
+      summary: Get average salary of employees
+      responses:
+        '200':
+          description: Successful response
+  /employees/employees-by-last-name/{lastName}:
+    get:
+      summary: Get employees by last name
+      parameters:
+        - name: lastName
+          in: path
+          required: true
+          description: Last name of employees
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /employees/employee-emails:
+    get:
+      summary: Get all employee emails
+      responses:
+        '200':
+          description: Successful response

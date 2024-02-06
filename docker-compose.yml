@@ -1,0 +1,75 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employee_db
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-init-scripts:/docker-entrypoint-initdb.d
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - ems-network
+
+  eureka:
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - ems-network
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka
+    networks:
+      - ems-network
+
+  employee-service:
+    depends_on:
+      - mysql
+    build:
+      context: ./employee-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    restart: always
+    networks:
+      - ems-network
+
+  attendance-service:
+    build:
+      context: ./attendance-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+    restart: always
+    networks:
+      - ems-network
+
+  performance-review-service:
+    build:
+      context: ./performance-review-service
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql
+    restart: always
+    networks:
+      - ems-network
+
+networks:
+  ems-network:
+    driver: bridge

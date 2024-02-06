@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "8a7661bc-d1d2-4337-9f15-469f364990d8",
+		"name": "Employee Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "261606"
+	},
+	"item": [
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "Get all employee emails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/employee-emails",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								"employee-emails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get employees by last name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/employees-by-last-name/:lastName",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								"employees-by-last-name",
+								":lastName"
+							],
+							"variable": [
+								{
+									"key": "lastName",
+									"value": "Doe",
+									"description": "(Required) Last name of employees"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get average salary of employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/average-salary",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								"average-salary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"phoneNumber\": \"+1234567890\",\r\n    \"hireDate\": \"2023-01-01\",\r\n    \"jobTitle\": \"Developer\",\r\n    \"salary\": 50000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get employee by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "(Required) Employee ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employee by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"phoneNumber\": \"+1234567890\",\r\n    \"hireDate\": \"2023-01-01\",\r\n    \"jobTitle\": \"Developer\",\r\n    \"salary\": 50000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employees/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "(Required) Employee ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete employee by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employees/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "(Required) Employee ID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "attendance",
+			"item": [
+				{
+					"name": "Check Out",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/attendance/checkout/:employeeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"attendance",
+								"checkout",
+								":employeeId"
+							],
+							"variable": [
+								{
+									"key": "employeeId",
+									"value": "1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/attendance/checkin/:employeeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"attendance",
+								"checkin",
+								":employeeId"
+							],
+							"variable": [
+								{
+									"key": "employeeId",
+									"value": "1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Attendance Statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/attendance/statistics/:employeeId?startDate=04-02-2024&endDate=05-02-2024",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"attendance",
+								"statistics",
+								":employeeId"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "04-02-2024"
+								},
+								{
+									"key": "endDate",
+									"value": "05-02-2024"
+								}
+							],
+							"variable": [
+								{
+									"key": "employeeId",
+									"value": "1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Attendance History",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/attendance/history/:employeeId?startDate=04-02-2024&endDate=05-02-2024",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"attendance",
+								"history",
+								":employeeId"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "04-02-2024"
+								},
+								{
+									"key": "endDate",
+									"value": "05-02-2024"
+								}
+							],
+							"variable": [
+								{
+									"key": "employeeId",
+									"value": "1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "performance-reviews",
+			"item": [
+				{
+					"name": "Get Performance Reviews by Employee ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/performance-reviews/employee/:employeeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"performance-reviews",
+								"employee",
+								":employeeId"
+							],
+							"variable": [
+								{
+									"key": "employeeId",
+									"value": "1",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Performance Reviews",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employeeId\": 1,\r\n    \"reviewDate\": \"2023-02-15\",\r\n    \"rating\": 4,\r\n    \"feedback\": \"Good performance\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/performance-reviews",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"performance-reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
